@@ -1,18 +1,38 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App" />
+    <input type="text" placeholder="Enter something" v-model="query" />
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
-import HelloWorld from "@/components/HelloWorld.vue"; // @ is an alias to /src
+import { defineComponent, ref } from "vue";
 
 export default defineComponent({
   name: "HomeView",
-  components: {
-    HelloWorld,
+  props: {},
+  setup() {
+    const query = ref<string>("");
+
+    return {
+      query,
+    };
   },
 });
 </script>
+
+<style lang="scss" scoped>
+.home {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+}
+
+input {
+  border-radius: 5px;
+  outline: none;
+  padding: 10px;
+  font-size: 17px;
+  width: 300px;
+}
+</style>
